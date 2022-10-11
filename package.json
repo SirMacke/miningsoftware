@@ -13,8 +13,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@nuxt-modules/compression": "^0.1.0",
+    "axios": "^1.1.2",
+    "cheerio": "^1.0.0-rc.12",
     "nuxt": "^3.0.0-rc.8",
     "sass": "^1.55.0",
-    "sass-loader": "^13.0.2"
+    "sass-loader": "^13.0.2",
+    "vite-plugin-compression": "^0.5.1"
   }
 }
