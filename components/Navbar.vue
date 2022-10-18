@@ -1,11 +1,11 @@
 <template>
   <nav>
     <div v-if="tone == 'white'" class="white">
-      <img src="/images/nav/menu_white.png">
+      <img @click="clickHandler" src="/images/nav/menu_white.png">
       <NuxtLink to="/">Miningsoftware</NuxtLink>
     </div>
     <div v-if="tone == 'black'" class="black">
-      <img src="/images/nav/menu_black.png">
+      <img @click="clickHandler" src="/images/nav/menu_black.png">
       <NuxtLink to="/">Miningsoftware</NuxtLink>
     </div>
   </nav>
@@ -13,6 +13,23 @@
 
 <script setup>
 const props = defineProps(['tone']);
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      isAsideOpen: true
+    };
+  },
+  methods: {
+    clickHandler(e) {
+      console.log('heree')
+      this.$emit('isAsideOpen');
+      this.isAsideOpen = !this.isAsideOpen;
+    }
+  }
+};
 </script>
 
 <style lang="sass" scoped>

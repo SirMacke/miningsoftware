@@ -1,6 +1,7 @@
 <template>
   <div>
-    <Navbar :tone="'white'" />
+    <Navbar :tone="'white'" @isAsideOpen="isAsideOpen = !isAsideOpen" />
+    <Aside :tone="'white'" :isAsideOpen="isAsideOpen" @isAsideClose="isAsideOpen = !isAsideOpen" />
     <HeroBackground />
     <main>
       <h1>Crypto Mining Profitability</h1>
@@ -16,6 +17,16 @@
 
 <script setup>
 let cryptos = (await useFetch('/api/cryptoslide')).data.value;
+</script>
+
+<script>
+export default {
+  data() {
+    return {
+      isAsideOpen: false
+    }
+  }
+}
 </script>
 
 <style lang="sass" scoped>
