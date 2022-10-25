@@ -40,7 +40,7 @@ aside
   overflow: hidden
   z-index: 20
   box-shadow: 0px 0px 50px 1px rgba(black, 0.2)
-  background: rgba($white, 0.5)
+  background: rgba($white, 0.25)
   backdrop-filter: blur(10px)
 
   @media screen and (max-width: 300px)

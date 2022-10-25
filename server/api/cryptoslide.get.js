@@ -26,5 +26,9 @@ export default defineEventHandler(async (event) => {
     }*/
   });
 
+  for (let x = cryptos.length - 1; x >= 0; x--) {
+    if (Math.round(cryptos[x].priceUSD) == 1) cryptos.splice(x, 1);
+  }
+
   return cryptos;
 });
