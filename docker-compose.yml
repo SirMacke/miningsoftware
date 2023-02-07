@@ -1,0 +1,23 @@
+version: '2'
+services:
+  miningsoftware:
+    image: "node:latest"
+    user: "node"
+    container_name: miningsoftware
+    working_dir: /home/node/app
+    environment:
+      - NODE_ENV=development
+      - TZ=Europe/Stockholm
+    volumes:
+      - ./:/home/node/app
+    expose:
+      - "3000"
+    ports:
+      - "3002:3000"
+    command: "npm run serverstart"
+
+networks:
+  default:
+    external:
+      name: bridged
+
