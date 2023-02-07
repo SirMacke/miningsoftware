@@ -16,5 +16,12 @@ export default defineEventHandler(async (event) => {
     }
   });
 
+  for (let x = cryptos.length - 1; x >= 0; x--) {
+    //console.log(cryptos[x].ticker)
+    if (cryptos[x].ticker == 'USDT' || cryptos[x].ticker == 'USDC' || cryptos[x].ticker == 'BUSD') {
+      cryptos.splice(x, 1);
+    }
+  }
+
   return cryptos;
 });

@@ -24,6 +24,12 @@ let cryptos = (await useFetch('/api/cryptoslide')).data.value;
   overflow: hidden
   cursor: default
 
+  @keyframes slide
+    0%
+      left: 0px
+    100%
+      left: -100%
+
   .crypto
     position: relative
     height: 100%
@@ -32,6 +38,10 @@ let cryptos = (await useFetch('/api/cryptoslide')).data.value;
     margin: auto 25px
     font-weight: bold
     font-size: 1.1em
+    animation: slide 15s infinite linear
+
+    @media screen and (max-width: 800px)
+      margin: auto 15px
 
     img
       height: 35px
@@ -40,6 +50,9 @@ let cryptos = (await useFetch('/api/cryptoslide')).data.value;
 
     .ticker
       margin: auto 12.5px
+
+      @media screen and (max-width: 800px)
+        margin: auto 10px
 
     .price
       margin: auto 0px

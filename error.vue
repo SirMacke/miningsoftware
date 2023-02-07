@@ -18,7 +18,7 @@
   position: relative
   width: 100%
   height: 45vh
-  background-color: $color-1
+  background-color: $black
 
   img
     width: 100%
@@ -43,7 +43,7 @@
 
     h1
       margin: 0px
-      color: $color-4
+      color: $color
       font-size: 3em
       
       @media screen and (max-width: 800px)
@@ -70,10 +70,10 @@
         text-align: center
 
     a
-      color: $color-3
+      color: $darkcolor
 
     a:hover
-      color: $color-4
+      color: $color
 
 #bottom
   width: 100%

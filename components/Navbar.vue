@@ -2,11 +2,11 @@
   <nav>
     <div v-if="tone == 'white'" class="white">
       <img @click="clickHandler" src="/images/nav/menu_white.png">
-      <NuxtLink to="/">Miningsoftware</NuxtLink>
+      <NuxtLink to="/">Mining Calculator</NuxtLink>
     </div>
     <div v-if="tone == 'black'" class="black">
       <img @click="clickHandler" src="/images/nav/menu_black.png">
-      <NuxtLink to="/">Miningsoftware</NuxtLink>
+      <NuxtLink to="/">Mining Calculator</NuxtLink>
     </div>
   </nav>
 </template>
@@ -24,7 +24,6 @@ export default {
   },
   methods: {
     clickHandler(e) {
-      console.log('heree')
       this.$emit('isAsideOpen');
       this.isAsideOpen = !this.isAsideOpen;
     }
@@ -53,16 +52,30 @@ nav
       width: 65px
       object-fit: cover
 
+      @media screen and (max-width: 1000px)
+        left: 30px
+        height: 55px
+        width: 55px
+
     img:hover
       cursor: pointer
 
     a
       position: relative
-      margin: auto 0px
+      margin: auto 0px auto 0px
+      padding-top: 5px
       left: 80px
       font-size: 1.75em
       text-decoration: none
       font-family: "Poppins", "sans-serif"
+
+      @media screen and (max-width: 1000px)
+        left: 55px
+        font-size: 1.5me
+
+      @media screen and (max-width: 600px)
+        left: 50px
+        font-size: 1.4em
 
   .white
     a

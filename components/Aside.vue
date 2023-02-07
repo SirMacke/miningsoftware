@@ -40,7 +40,7 @@ aside
   overflow: hidden
   z-index: 20
   box-shadow: 0px 0px 50px 1px rgba(black, 0.2)
-  background: rgba($white, 0.25)
+  background: rgba($black, 0.5)
   backdrop-filter: blur(10px)
 
   @media screen and (max-width: 300px)
@@ -48,6 +48,7 @@ aside
 
   svg:hover
     cursor: pointer
+    fill: rgba($white, 0.5)
 
   svg
     position: absolute
@@ -56,6 +57,7 @@ aside
     fill: $white
     height: 50px
     width: 50px
+    transition: 0.2s
 
     @media screen and (max-width: 600px)
       top: 31px
@@ -102,16 +104,16 @@ aside
       background: rgba($color, 0.25)
 
 .asideOpen
-  animation: asideOpen ease-in-out 1s forwards
+  animation: asideOpen ease-in-out 0.5s forwards
 
   @media screen and (max-width: 300px)
-    animation: asideOpen300 ease-in-out 1s forwards
+    animation: asideOpen300 ease-in-out 0.5s forwards
 
 .asideClose
-  animation: asideClose ease-in-out 1s forwards
+  animation: asideClose ease-in-out 0.5s forwards
 
   @media screen and (max-width: 300px)
-    animation: asideClose300 ease-in-out 1s forwards
+    animation: asideClose300 ease-in-out 0.5s forwards
 
 @keyframes asideOpen
   0%
