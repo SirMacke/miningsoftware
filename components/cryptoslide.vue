@@ -28,17 +28,18 @@ let cryptos = (await useFetch('/api/cryptoslide')).data.value;
     0%
       left: 0px
     100%
-      left: -100%
+      left: calc(6 * -240px)
 
   .crypto
     position: relative
     height: 100%
+    min-width: 190px
     display: flex
     flex-direction: row
     margin: auto 25px
     font-weight: bold
     font-size: 1.1em
-    animation: slide 15s infinite linear
+    animation: slide 20s infinite linear
 
     @media screen and (max-width: 800px)
       margin: auto 15px

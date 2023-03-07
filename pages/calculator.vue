@@ -74,6 +74,7 @@
             <th>Profit</th>
           </tr>
           <tr v-for="crypto of cryptos">
+            {{crypto}}
             <td>{{crypto.ticker}}</td>
             <td>{{crypto.difficulty}}</td>
             <td>{{crypto.reward}}</td>

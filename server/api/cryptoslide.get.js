@@ -35,7 +35,7 @@ export default defineEventHandler(async (event) => {
     if (Math.round(cryptos[x].priceUSD) == 1) cryptos.splice(x, 1);
   }
 
-  cryptos = [...cryptos, ...cryptos];
+  cryptos = [...cryptos, ...cryptos, ...cryptos];
   //console.log(cryptos)
 
   return cryptos;
