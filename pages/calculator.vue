@@ -50,13 +50,13 @@
         <div id="top">
           <h1>Profitability</h1>
           <div id="right">
-            <div class="btn">
+            <div class="btn" @click="timeFrameHandler(1)" :class="{ selected: timeFrameDays == 1, deselected: timeFrameDays != 1 }">
               <p>1D</p>
             </div>
-            <div class="btn">
+            <div class="btn" @click="timeFrameHandler(7)" :class="{ selected: timeFrameDays == 7, deselected: timeFrameDays != 7 }">
               <p>7D</p>
             </div>
-            <div class="btn">
+            <div class="btn" @click="timeFrameHandler(30)" :class="{ selected: timeFrameDays == 30, deselected: timeFrameDays != 30 }">
               <p>30D</p>
             </div>
           </div>
@@ -74,13 +74,12 @@
             <th>Profit</th>
           </tr>
           <tr v-for="crypto of cryptos">
-            {{crypto}}
             <td>{{crypto.ticker}}</td>
-            <td>{{crypto.difficulty}}</td>
-            <td>{{crypto.reward}}</td>
-            <td>{{crypto.revenue}}</td>
-            <td>{{crypto.electricityCost}}</td>
-            <td>{{crypto.profit}}</td>
+            <td v-if="crypto.data != undefined">{{crypto.data[crypto.data.length - 1].difficulty}}</td>
+            <td v-if="crypto.data != undefined">{{Math.round(crypto.data[crypto.data.length - 1].revenuePerHashPerHour * crypto.hashrate * 24 * timeFrameDays * 10000) / 10000}}</td>
+            <td v-if="crypto.data != undefined">{{Math.round(crypto.data[crypto.data.length - 1].revenuePerHashPerHour * crypto.hashrate * crypto.data[crypto.data.length - 1].price * 24 * timeFrameDays * 100) / 100}}</td>
+            <td v-if="crypto.watts != undefined">{{Math.round(crypto.watts / 1000 * electricity.value * 24  * timeFrameDays * 100) / 100}}</td>
+            <td v-if="crypto.data != undefined && crypto.watts != undefined">{{Math.round(((crypto.data[crypto.data.length - 1].revenuePerHashPerHour * crypto.hashrate * crypto.data[crypto.data.length - 1].price * 24 * timeFrameDays) - (crypto.watts / 1000 * electricity.value * 24  * timeFrameDays)) * 100) / 100}}</td>
           </tr>
         </table>
       </div>
@@ -110,7 +109,8 @@ export default {
         currency: '$',
         format: 'kWh'
       },
-      cryptos: []
+      cryptos: [],
+      timeFrameDays: 1
     }
   },
   methods: {
@@ -118,6 +118,9 @@ export default {
       console.log(e)
       this.selectedCryptos[e.ticker] == undefined ? this.selectedCryptos[e.ticker] = true : this.selectedCryptos[e.ticker] = !this.selectedCryptos[e.ticker]
       console.log(this.selectedCryptos)
+    },
+    timeFrameHandler(e) {
+      this.timeFrameDays = e;
     }
   }
 }
